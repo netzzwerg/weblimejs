@@ -26,10 +26,13 @@ var Weblime = (function(global, undefined) {
 	}
 
 	Weblime.prototype.init = function() {
-		console.log('weblime init');
-		console.log(this);
-		console.log(ace);
-		this.loadFile();
+
+		this.loadFile(function(file, response) {
+			console.log(file);
+			console.log(response);
+		});
+
+
 		var editor = this.getEditor();
 		console.log(editor);
 	};
@@ -38,9 +41,16 @@ var Weblime = (function(global, undefined) {
 		return path.replace(/\/$/, '');
 	};
 
-	Weblime.prototype.loadFile = function() {
-		var file = this.path + '/' + this.files;
-		return file;
+	Weblime.prototype.loadFile = function(cb) {
+
+		$.ajax({
+			url: [this.path, this.files].join('/'),
+			success: function(response) {
+				cb(file, response);
+			},
+			cache: false
+		});
+
 	};
 
 	Weblime.prototype.getEditor = function() {
