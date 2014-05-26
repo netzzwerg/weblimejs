@@ -58,7 +58,7 @@
 		editor.getSession().setMode("ace/mode/javascript");
 		editor.setHighlightActiveLine(true);
 		editor.setHighlightGutterLine(true);
-		editor.setShowInvisibles(true);
+		editor.setShowInvisibles(false);
 	};
 
 	Weblime.prototype.deactiveEditor = function(editor) {
