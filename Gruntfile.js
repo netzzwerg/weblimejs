@@ -9,13 +9,13 @@ module.exports = function(grunt) {
         options: {
           port: 8888,
           hostname: '0.0.0.0', // Change to 0.0.0.0 to external connection.
-          base: './test',
+          base: './app',
           open: true,
           middleware: function (connect, options) {
             return [
               require('connect-livereload')({ port: 35732 }),
               // Serve static files.
-              connect.static(options.base),
+              connect.static(options.base)
             ];
           }
         }
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 
     watch: {
       reload: {
-        files: ['weblime.js'],
+        files: ['lib/**/*.js'],
         tasks: [], // Add more tasks here.
         options: {
           livereload: 35732

@@ -13,11 +13,10 @@ var Weblime = (function(global, undefined) {
 	'use strict';
 
 	function Weblime(args) {
-		// enforces new
+
 		if (!(this instanceof Weblime)) {
 			return new Weblime(args);
 		}
-		// constructor body
 
 		this.el = args.el;
 		this.files = $(args.el).data('source-file');
@@ -26,29 +25,45 @@ var Weblime = (function(global, undefined) {
 	}
 
 	Weblime.prototype.init = function() {
-		console.log('weblime init');
-		console.log(this);
-		console.log(ace);
-		this.loadFile();
-		var editor = this.getEditor();
-		console.log(editor);
+
+		var that = this;
+		this.loadFile(function(response) {
+			$(that.el).text(response);
+			that.getEditor();
+		});
+
 	};
 
 	Weblime.prototype.cleanPath = function(path) {
 		return path.replace(/\/$/, '');
 	};
 
-	Weblime.prototype.loadFile = function() {
-		var file = this.path + '/' + this.files;
-		return file;
+	Weblime.prototype.loadFile = function(cb) {
+
+		$.ajax({
+			url: [this.path, this.files].join('/'),
+			success: function(response) {
+				cb(response);
+			},
+			cache: false
+		});
+
 	};
 
 	Weblime.prototype.getEditor = function() {
 
 		var editor = ace.edit(this.el);
-			editor.setTheme("ace/theme/clouds");
-			editor.getSession().setMode("ace/mode/javascript");
+			//editor.setTheme("ace/theme/clouds");
+			//editor.getSession().setMode("ace/mode/javascript");
 			editor.setReadOnly(true);
+			editor.setHighlightActiveLine(false);
+			editor.setHighlightGutterLine(false);
+			editor.setShowInvisibles(false);
+
+			editor.on('focus', function() {
+				editor.setHighlightActiveLine(true);
+				editor.setHighlightGutterLine(true);
+			});
 
 		return editor;
 	};
