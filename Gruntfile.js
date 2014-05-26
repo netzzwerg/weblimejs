@@ -11,6 +11,7 @@ module.exports = function(grunt) {
           hostname: '0.0.0.0', // Change to 0.0.0.0 to external connection.
           base: './app',
           open: true,
+          debug: true,
           middleware: function (connect, options) {
             return [
               require('connect-livereload')({ port: 35732 }),
@@ -19,6 +20,22 @@ module.exports = function(grunt) {
             ];
           }
         }
+      }
+    },
+
+    copy: {
+      main: {
+        files: [{
+          flatten: true,
+          src: 'bower_components/jquery/jquery.min.js',
+          dest: 'app/lib/jquery.js',
+          filter: 'isFile'
+        },{
+          flatten: true,
+          src: 'bower_components/requirejs/require.js',
+          dest: 'app/lib/require.js',
+          filter: 'isFile'
+        }]
       }
     },
 
@@ -37,9 +54,10 @@ module.exports = function(grunt) {
   // Load task modules.
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task.
   grunt.registerTask('default', 'server');
-  grunt.registerTask('server', ['connect', 'watch:reload']);
+  grunt.registerTask('server', ['copy', 'connect','watch:reload']);
 
 };

@@ -9,7 +9,7 @@
  * Version: 0.1.0
  */
 
-var Weblime = (function(global, undefined) {
+(function() {
 	'use strict';
 
 	function Weblime(args) {
@@ -68,6 +68,12 @@ var Weblime = (function(global, undefined) {
 		return editor;
 	};
 
-	return Weblime;
+	if (typeof define === 'function' && define.amd) {
+		define('weblime', ['ace'], function() {
+			return Weblime;
+		});
+	} else if (window.ace !== undefined){
+		window.weblime = Weblime;
+	}
 
-}(this));
+}());
