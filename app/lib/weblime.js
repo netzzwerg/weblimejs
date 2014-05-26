@@ -19,6 +19,7 @@
 		}
 
 		this.el = args.el;
+		this.theme = args.theme;
 		this.files = $(args.el).data('source-file');
 		this.path = this.cleanPath(args.path);
 		this.init();
@@ -29,7 +30,7 @@
 		var that = this;
 		this.loadFile(function(response) {
 			$(that.el).text(response);
-			that.getEditor();
+			window.currentEditor = that.getEditor();
 		});
 
 	};
@@ -50,19 +51,40 @@
 
 	};
 
+	Weblime.prototype.activeEditor = function(editor) {
+		if(this.theme){
+			editor.setTheme("ace/theme/" + this.theme);
+		}
+		editor.getSession().setMode("ace/mode/javascript");
+		editor.setHighlightActiveLine(true);
+		editor.setHighlightGutterLine(true);
+		editor.setShowInvisibles(true);
+	};
+
+	Weblime.prototype.deactiveEditor = function(editor) {
+		editor.setTheme("ace/theme/default");
+		editor.getSession().setMode("ace/mode/text");
+		editor.setHighlightActiveLine(false);
+		editor.setHighlightGutterLine(false);
+		editor.setShowInvisibles(false);
+	};
+
 	Weblime.prototype.getEditor = function() {
 
+		var weblime = this;
 		var editor = ace.edit(this.el);
-			editor.setTheme("ace/theme/monokai");
-			editor.getSession().setMode("ace/mode/javascript");
+
 			editor.setReadOnly(true);
-			editor.setHighlightActiveLine(false);
-			editor.setHighlightGutterLine(false);
-			editor.setShowInvisibles(false);
+			editor.setFadeFoldWidgets(true);
+
+			weblime.deactiveEditor(editor);
 
 			editor.on('focus', function() {
-				editor.setHighlightActiveLine(true);
-				editor.setHighlightGutterLine(true);
+				weblime.activeEditor(editor);
+			});
+
+			editor.on('blur', function() {
+				weblime.deactiveEditor(editor);
 			});
 
 		return editor;

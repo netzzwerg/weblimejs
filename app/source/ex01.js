@@ -1,12 +1,14 @@
 var exampleModule = (function() {
-	'use strict';
+    'use strict';
 
-	var exampleModule = {
-		init: function() {
-			console.log('exampleModule init');
-		}
-	};
+    var number = 0;
 
-	return exampleModule;
+    var exampleModule = {
+        init: function() {
+            console.log('exampleModule init');
+        }
+    };
+
+    return exampleModule;
 
 }());
