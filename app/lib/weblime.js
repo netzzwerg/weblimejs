@@ -53,8 +53,8 @@
 	Weblime.prototype.getEditor = function() {
 
 		var editor = ace.edit(this.el);
-			//editor.setTheme("ace/theme/clouds");
-			//editor.getSession().setMode("ace/mode/javascript");
+			editor.setTheme("ace/theme/monokai");
+			editor.getSession().setMode("ace/mode/javascript");
 			editor.setReadOnly(true);
 			editor.setHighlightActiveLine(false);
 			editor.setHighlightGutterLine(false);
