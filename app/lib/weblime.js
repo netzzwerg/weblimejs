@@ -75,7 +75,8 @@
 		var weblime = this;
 		var editor = ace.edit(weblime.target);
 
-			editor.renderer.setScrollMargin(30, 30, 80, 0);
+
+
 			editor.setReadOnly(true);
 			editor.setFadeFoldWidgets(true);
 			editor.setAutoScrollEditorIntoView(true);
@@ -83,8 +84,6 @@
 			editor.setOptions({
 				maxLines: 25
 			});
-
-
 
 			weblime.deactiveEditor(editor);
 
