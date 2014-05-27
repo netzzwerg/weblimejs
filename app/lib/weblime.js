@@ -19,6 +19,7 @@
 		}
 
 		this.el = args.el;
+		this.target = $(this.el).append('<div>').children('div:last')[0];
 		this.theme = args.theme;
 		this.files = $(args.el).data('source-file');
 		this.path = this.cleanPath(args.path);
@@ -29,7 +30,7 @@
 
 		var that = this;
 		this.loadFile(function(response) {
-			$(that.el).text(response);
+			$(that.target).text(response);
 			window.currentEditor = that.getEditor();
 		});
 
@@ -72,7 +73,9 @@
 	Weblime.prototype.getEditor = function() {
 
 		var weblime = this;
-		var editor = ace.edit(this.el);
+		var editor = ace.edit(weblime.target);
+
+
 
 			editor.setReadOnly(true);
 			editor.setFadeFoldWidgets(true);

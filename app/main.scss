@@ -10,9 +10,7 @@ body {
 }
 
 .weblime {
-	position: absolute;
 	width: 900px;
-
 }
 
 /* remove cursor from inactive code section */
@@ -21,13 +19,14 @@ body {
 }
 
 .ace-letterpress {
+	position: absolute;
+	color: #F8F8F2;
 	@include background-image(radial-gradient(color-stops(#2A2E30, #111414), center center));
 }
 
 .ace-letterpress .ace_gutter {
 	color: #666666;
 	background-color: #FFFFFF;
-
 }
 
 .ace-letterpress .ace_content {
@@ -38,20 +37,17 @@ body {
 
 }
 
-.ace-letterpress {
-	color: #F8F8F2
-}
-
 .ace-letterpress .ace_scroller {
 
 }
 
 .ace-letterpress .ace_cursor {
-	color: #F8F8F0
+	color: #F8F8F0;
 }
 
 .ace-letterpress .ace_marker-layer .ace_selection {
-	background: #49483E
+	background: #49483E;
+
 }
 
 .ace-letterpress.ace_multiselect .ace_selection.ace_start {
