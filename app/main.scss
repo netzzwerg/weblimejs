@@ -13,6 +13,10 @@ body {
 	width: 900px;
 }
 
+.weblime .ace_scroller {
+	left: 80px !important;
+}
+
 /* remove cursor from inactive code section */
 .ace_hidden-cursors {
 	opacity:0
@@ -61,30 +65,30 @@ body {
 
 .ace-letterpress .ace_marker-layer .ace_bracket {
 	margin: -1px 0 0 -1px;
-	border: 1px solid #49483E
+	border: 1px solid #49483E;
 }
 
 .ace-letterpress .ace_marker-layer .ace_active-line {
-	background: #202020
+	background: #202020;
 }
 
 .ace-letterpress .ace_gutter-active-line {
-	background-color: #272727
+	background-color: #dcdcdc;
 }
 
 .ace-letterpress .ace_marker-layer .ace_selected-word {
-	border: 1px solid #49483E
+	border: 1px solid #49483E;
 }
 
 .ace-letterpress .ace_invisible {
-	color: #52524d
+	color: #52524d;
 }
 
 .ace-letterpress .ace_entity.ace_name.ace_tag,
 .ace-letterpress .ace_keyword,
 .ace-letterpress .ace_meta.ace_tag,
 .ace-letterpress .ace_storage {
-	color: #F92672
+	color: #F92672;
 }
 
 .ace-letterpress .ace_punctuation,
