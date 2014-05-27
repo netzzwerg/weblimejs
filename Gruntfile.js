@@ -41,10 +41,30 @@ module.exports = function(grunt) {
 
     watch: {
       reload: {
-        files: ['lib/**/*.js'],
-        tasks: [], // Add more tasks here.
+        files: ['app/lib/**/*.js'],
+        tasks: [],
         options: {
           livereload: 35732
+        }
+      },
+      scss: {
+        files: ['app/**/*.scss'],
+        tasks: ['compass'],
+        options: {
+          livereload: 35732
+        }
+      }
+    },
+
+    compass: {
+      build: {
+        options: {
+          relativeAssets: true,
+          sassDir: 'app',
+          cssDir: 'app',
+          environment: 'development',
+          outputStyle: 'expanded',
+          imagesDir: 'img'
         }
       }
     }
@@ -55,9 +75,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-compass');
 
   // Default task.
   grunt.registerTask('default', 'server');
-  grunt.registerTask('server', ['copy', 'connect','watch:reload']);
+  grunt.registerTask('server', ['copy', 'connect','watch']);
 
 };

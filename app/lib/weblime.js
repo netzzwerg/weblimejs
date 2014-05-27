@@ -76,6 +76,11 @@
 
 			editor.setReadOnly(true);
 			editor.setFadeFoldWidgets(true);
+			editor.setAutoScrollEditorIntoView(true);
+
+			editor.setOptions({
+				maxLines: 25
+			});
 
 			weblime.deactiveEditor(editor);
 
