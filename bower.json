@@ -1,7 +1,18 @@
 {
   "name": "weblimejs",
-  "main": "app/lib/weblime.js",
-  "ignore": "",
+  "main": "lib/weblime.js",
+  "ignore": [
+    ".gitignore",
+    ".jsbeautifyrc",
+    ".jshintrc",
+    "Gruntfile.js",
+    "app.js",
+    "index.html",
+    "main.css",
+    "main.scss",
+    "package.json",
+    "source"
+  ],
   "dependencies": {
     "jquery": "1.10.0",
     "ace": "1.1.3",
