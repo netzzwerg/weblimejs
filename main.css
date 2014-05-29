@@ -1,23 +1,30 @@
+@charset "UTF-8";
 /* line 5, main.scss */
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
+  margin: 50px;
+  margin: 50px;
+  background-color: #f6f6f6;
   font-family: Helvetica, Arial;
 }
 
 /* line 12, main.scss */
+body > h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* line 17, main.scss */
 .weblime {
   width: 900px;
 }
 
 /* remove cursor from inactive code section */
-/* line 17, main.scss */
+/* line 22, main.scss */
 .ace_hidden-cursors {
   opacity: 0;
 }
 
-/* line 21, main.scss */
+/* line 26, main.scss */
 .ace-letterpress {
   position: absolute;
   color: #F8F8F2;
@@ -28,65 +35,65 @@ body {
   background-image: radial-gradient(center center, #2a2e30, #111414);
 }
 
-/* line 27, main.scss */
+/* line 32, main.scss */
 .ace-letterpress .ace_gutter {
   color: #666666;
   background-color: #FFFFFF;
 }
 
-/* line 32, main.scss */
+/* line 37, main.scss */
 .ace-letterpress .ace_content {
   word-wrap: break-word;
 }
 
-/* line 44, main.scss */
+/* line 49, main.scss */
 .ace-letterpress .ace_cursor {
   color: #F8F8F0;
 }
 
-/* line 48, main.scss */
+/* line 53, main.scss */
 .ace-letterpress .ace_marker-layer .ace_selection {
   background: #49483E;
 }
 
-/* line 53, main.scss */
+/* line 58, main.scss */
 .ace-letterpress.ace_multiselect .ace_selection.ace_start {
   box-shadow: 0 0 3px 0px #272822;
   border-radius: 2px;
 }
 
-/* line 58, main.scss */
+/* line 63, main.scss */
 .ace-letterpress .ace_marker-layer .ace_step {
   background: #665200;
 }
 
-/* line 62, main.scss */
+/* line 67, main.scss */
 .ace-letterpress .ace_marker-layer .ace_bracket {
   margin: -1px 0 0 -1px;
   border: 1px solid #49483e;
 }
 
-/* line 67, main.scss */
+/* line 72, main.scss */
 .ace-letterpress .ace_marker-layer .ace_active-line {
   background: #202020;
 }
 
-/* line 71, main.scss */
+/* line 76, main.scss */
 .ace-letterpress .ace_gutter-active-line {
   background-color: #272727;
 }
 
-/* line 75, main.scss */
+/* line 80, main.scss */
 .ace-letterpress .ace_marker-layer .ace_selected-word {
   border: 1px solid #49483e;
 }
 
-/* line 79, main.scss */
+/* line 84, main.scss */
 .ace-letterpress .ace_invisible {
   color: #52524d;
 }
 
-/* line 86, main.scss */
+/* line 91, main.scss */
 .ace-letterpress .ace_entity.ace_name.ace_tag,
 .ace-letterpress .ace_keyword,
 .ace-letterpress .ace_meta.ace_tag,
@@ -94,13 +101,13 @@ body {
   color: #f92672;
 }
 
-/* line 91, main.scss */
+/* line 96, main.scss */
 .ace-letterpress .ace_punctuation,
 .ace-letterpress .ace_punctuation.ace_tag {
   color: white;
 }
 
-/* line 98, main.scss */
+/* line 103, main.scss */
 .ace-letterpress .ace_constant.ace_character,
 .ace-letterpress .ace_constant.ace_language,
 .ace-letterpress .ace_constant.ace_numeric,
@@ -108,31 +115,31 @@ body {
   color: #ae81ff;
 }
 
-/* line 102, main.scss */
+/* line 107, main.scss */
 .ace-letterpress .ace_invalid {
   color: #F8F8F0;
   background-color: #f92672;
 }
 
-/* line 107, main.scss */
+/* line 112, main.scss */
 .ace-letterpress .ace_invalid.ace_deprecated {
   color: #F8F8F0;
   background-color: #ae81ff;
 }
 
-/* line 113, main.scss */
+/* line 118, main.scss */
 .ace-letterpress .ace_support.ace_constant,
 .ace-letterpress .ace_support.ace_function {
   color: #66d9ef;
 }
 
-/* line 117, main.scss */
+/* line 122, main.scss */
 .ace-letterpress .ace_fold {
   background-color: #A6E22E;
   border-color: #f8f8f2;
 }
 
-/* line 124, main.scss */
+/* line 129, main.scss */
 .ace-letterpress .ace_storage.ace_type,
 .ace-letterpress .ace_support.ace_class,
 .ace-letterpress .ace_support.ace_type {
@@ -140,7 +147,7 @@ body {
   color: #66d9ef;
 }
 
-/* line 132, main.scss */
+/* line 137, main.scss */
 .ace-letterpress .ace_entity.ace_name.ace_function,
 .ace-letterpress .ace_entity.ace_other,
 .ace-letterpress .ace_entity.ace_other.ace_attribute-name,
@@ -148,23 +155,23 @@ body {
   color: #a6e22e;
 }
 
-/* line 136, main.scss */
+/* line 141, main.scss */
 .ace-letterpress .ace_variable.ace_parameter {
   font-style: italic;
   color: #fd971f;
 }
 
-/* line 141, main.scss */
+/* line 146, main.scss */
 .ace-letterpress .ace_string {
   color: #e6db74;
 }
 
-/* line 145, main.scss */
+/* line 150, main.scss */
 .ace-letterpress .ace_comment {
   color: #75715e;
 }
 
-/* line 149, main.scss */
+/* line 154, main.scss */
 .ace-letterpress .ace_indent-guide {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y;
 }

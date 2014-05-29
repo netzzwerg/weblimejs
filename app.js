@@ -4,7 +4,10 @@
   requirejs.config({
     baseUrl: 'lib',
     paths: {
-      app: '../app'
+      'jquery': '../bower_components/jquery/jquery.min',
+      'ace': '../bower_components/ace/lib/ace',
+      'ace/theme/default': 'theme-default',
+      'ace/theme/letterpress': 'theme-letterpress',
     }
   });
 
@@ -12,7 +15,7 @@
 
     new Weblime({
       el: $('.weblime')[0],
-      theme: 'textmate', // default theme is textmate
+      theme: 'textmate',
       path: 'source/',
       callback: function(weblime) {
         console.log(weblime);

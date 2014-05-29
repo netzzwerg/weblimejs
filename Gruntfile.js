@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         options: {
           port: 8888,
           hostname: '0.0.0.0', // Change to 0.0.0.0 to external connection.
-          base: './app',
+          base: '.',
           open: true,
           debug: true,
           middleware: function (connect, options) {
@@ -23,32 +23,16 @@ module.exports = function(grunt) {
       }
     },
 
-    copy: {
-      main: {
-        files: [{
-          flatten: true,
-          src: 'bower_components/jquery/jquery.min.js',
-          dest: 'app/lib/jquery.js',
-          filter: 'isFile'
-        },{
-          flatten: true,
-          src: 'bower_components/requirejs/require.js',
-          dest: 'app/lib/require.js',
-          filter: 'isFile'
-        }]
-      }
-    },
-
     watch: {
       reload: {
-        files: ['app/lib/**/*.js'],
+        files: ['lib/**/*.js'],
         tasks: [],
         options: {
           livereload: 35732
         }
       },
       scss: {
-        files: ['app/**/*.scss'],
+        files: ['*.scss'],
         tasks: ['compass'],
         options: {
           livereload: 35732
@@ -60,11 +44,11 @@ module.exports = function(grunt) {
       build: {
         options: {
           relativeAssets: true,
-          sassDir: 'app',
-          cssDir: 'app',
+          sassDir: '.',
+          cssDir: '.',
           environment: 'development',
           outputStyle: 'expanded',
-          imagesDir: 'img'
+          imagesDir: '.'
         }
       }
     }
@@ -74,11 +58,10 @@ module.exports = function(grunt) {
   // Load task modules.
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-compass');
 
   // Default task.
   grunt.registerTask('default', 'server');
-  grunt.registerTask('server', ['copy', 'connect','watch']);
+  grunt.registerTask('server', ['connect','watch']);
 
 };
