@@ -1,9 +1,6 @@
 {
-  "name": "weblime.js",
-  "ignore": [
-    ".jshintrc",
-    "**/*.txt"
-  ],
+  "name": "weblimejs",
+  "main": "app/lib/weblime.js",
   "dependencies": {
     "jquery": "1.10.0",
     "ace": "1.1.3",
