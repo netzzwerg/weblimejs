@@ -10,6 +10,7 @@
     "index.html",
     "main.css",
     "main.scss",
+    "bower.json",
     "package.json",
     "source"
   ],
